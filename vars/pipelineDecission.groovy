@@ -2,7 +2,7 @@
 
 // declaring function
 
-def decidePipeline(Map configMap) {
+def decidePipeline(Map configMap){
       type = configMap.get("type")
       switch (type) {
         case "nodejsEKS":
