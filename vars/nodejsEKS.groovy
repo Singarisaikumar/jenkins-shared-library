@@ -120,7 +120,6 @@ def call(Map configMap){
         failure { 
             echo 'I will run when pipeline is failure'
         }
+       }
     }
-}
-
 }
