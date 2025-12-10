@@ -89,10 +89,10 @@ def call(Map configMap){
                         if(rollbackStatus.contains('successfully rolled out')){
                             echo "Deployment is successfull"
                         }
-                    else{
-                           echo "Deployment is failled, performimg rollback"
-                           if(releaseExists.isEmpty()){
-                            echo "Deployment is failed, not able to rollback, since it is first time deployment"
+                        else{
+                            echo "Deployment is failled, performimg rollback"
+                            if(releaseExists.isEmpty()){
+                                echo "Deployment is failed, not able to rollback, since it is first time deployment"
                             }
                             else{
                                 sh """
@@ -105,7 +105,7 @@ def call(Map configMap){
                                     error "Deployment is failed, Rollback is successfull"
                                 } 
                                 else{
-                                   error "Deployment is failed, Rollback is failed"
+                                    error "Deployment is failed, Rollback is failed"
                                 }
                             }
                         }
