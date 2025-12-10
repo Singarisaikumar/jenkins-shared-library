@@ -98,14 +98,14 @@ def call(Map configMap){
                                 sh """
                                 aws eks update-kubeconfig --region ${region} --name ${project}-dev
                                 helm rollback backend -n ${project} 0
-                                sleep(60)
+                                sleep 60
                                 """
                                 rollbackStatus = sh(script: "kubectl rollout status deployment/backend -n ${project} --timeout=1m  || true", returnStdout: true).trim()
                                 if(rollbackStatus.contains('successfully rolled out')){
-                                    echo "Rollback is successfull"
+                                    error "Deployment is failed, Rollback is successfull"
                                 } 
                                 else{
-                                   error "Rollback is failed"
+                                   error "Deployment is failed, Rollback is failed"
                                 }
                             }
                         }
