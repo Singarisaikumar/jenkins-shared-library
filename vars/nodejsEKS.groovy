@@ -15,7 +15,7 @@ def call(Map configMap){
             account_id = pipelineGlobals.account_id()
             component = configMap.get("component")
             project = configMap.get("project")
-            
+            def releaseExists = ""
         }
         stages {
             stage('read the version'){
